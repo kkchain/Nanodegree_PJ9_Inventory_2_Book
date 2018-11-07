@@ -1,4 +1,4 @@
-package com.example.kkchain.nanodegree_project9_inventory_2_book.Data;
+package com.example.kkchain.nanodegree_pj9_inventory_2_book.Data;
 
 import android.content.ContentResolver;
 import android.net.Uri;
@@ -12,7 +12,7 @@ public final class BookContract {
     }
 
     // The "Content Authority" is a name for the entire content provider.
-    public static final String CONTENT_AUTHORITY = "com.example.kkchain.nanodegree_project9_inventory_2_book.books";
+    public static final String CONTENT_AUTHORITY = "com.example.kkchain.nanodegree_pj9_inventory_2_book";
 
     /**
      * Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
@@ -22,7 +22,7 @@ public final class BookContract {
 
     /**
      * Possible path (appended to base content URI for possible URI's)
-     * content://com.example.kkchain.nanodegree_project9_inventory_2_book.books/books is a valid
+     * content://com.example.kkchain.nanodegree_pj9_inventory_2_book/books is a valid
      * path for looking data.
      */
     public static final String PATH_BOOKS = "books";
@@ -34,7 +34,7 @@ public final class BookContract {
     public static final class BookEntry implements BaseColumns {
 
         /**
-         * The content URI to access the pet data in the provider
+         * The content URI to access the book data in the provider
          */
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_BOOKS);
 

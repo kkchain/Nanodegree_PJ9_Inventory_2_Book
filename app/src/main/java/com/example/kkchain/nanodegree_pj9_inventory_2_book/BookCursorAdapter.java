@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.example.kkchain.nanodegree_project9_inventory_2_book.Data.BookContract.BookEntry;
+import com.example.kkchain.nanodegree_pj9_inventory_2_book.Data.BookContract.BookEntry;
 
 
 public class BookCursorAdapter extends CursorAdapter {
@@ -48,7 +48,7 @@ public class BookCursorAdapter extends CursorAdapter {
         TextView bookQuantityTextView = (TextView) view.findViewById(R.id.bookQuantity);
 
 
-        // Find the columns of book attributes that we're interested in
+        // Find the columns of book attributes that we're interested in.
         int bookNameColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_NAME);
         int bookPriceColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_PRICE);
         int bookQuantityColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);

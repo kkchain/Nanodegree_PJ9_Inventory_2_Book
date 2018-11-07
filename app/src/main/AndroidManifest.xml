@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <provider
-            android:name=".data.PetProvider"
+            android:name=".data.BookProvider"
             android:authorities="com.example.kkchain.nanodegree_pj9_inventory_2_book"
             android:exported="false" />
     </application>

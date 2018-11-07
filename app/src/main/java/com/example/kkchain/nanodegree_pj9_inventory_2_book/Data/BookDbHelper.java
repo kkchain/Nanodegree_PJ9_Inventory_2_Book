@@ -1,11 +1,11 @@
-package com.example.kkchain.nanodegree_project9_inventory_2_book.Data;
+package com.example.kkchain.nanodegree_pj9_inventory_2_book.Data;
 
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.kkchain.nanodegree_project9_inventory_2_book.Data.BookContract.BookEntry;
+import com.example.kkchain.nanodegree_pj9_inventory_2_book.Data.BookContract.BookEntry;
 
 /**
  * Database helper for Books store app. Manages database creation and version management

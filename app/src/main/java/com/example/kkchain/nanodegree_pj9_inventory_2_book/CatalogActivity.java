@@ -19,7 +19,7 @@ import android.widget.ListView;
 import com.example.kkchain.nanodegree_pj9_inventory_2_book.BookCursorAdapter;
 import com.example.kkchain.nanodegree_pj9_inventory_2_book.EditorActivity;
 import com.example.kkchain.nanodegree_pj9_inventory_2_book.R;
-import com.example.kkchain.nanodegree_project9_inventory_2_book.Data.BookContract.BookEntry;
+import com.example.kkchain.nanodegree_pj9_inventory_2_book.Data.BookContract.BookEntry;
 
 /**
  * Display list of books that were entered and stored in the app
@@ -31,7 +31,7 @@ public class CatalogActivity extends AppCompatActivity implements
     /**
      * Identifier for the book data loader
      */
-    private static final int PET_LOADER = 0;
+    private static final int BOOK_LOADER = 0;
 
     /**
      * Adapter for the ListView
@@ -66,7 +66,7 @@ public class CatalogActivity extends AppCompatActivity implements
         bookListView.setAdapter(mCursorAdapter);
 
         // Kick off the Loader
-        getLoaderManager().initLoader(PET_LOADER, null, this);
+        getLoaderManager().initLoader(BOOK_LOADER, null, this);
     }
 
     /**
@@ -85,7 +85,7 @@ public class CatalogActivity extends AppCompatActivity implements
     }
 
     /**
-     * Helper method to delete all pets in the database
+     * Helper method to delete all books in the database
      */
     private void deleteAllBooks() {
         int rowsDeleted = getContentResolver().delete(BookEntry.CONTENT_URI, null, null);
