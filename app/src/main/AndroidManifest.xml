@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Catalog">
+        <activity android:name=".CatalogActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
         <provider
-            android:name=".data.BookProvider"
             android:authorities="com.example.kkchain.nanodegree_pj9_inventory_2_book"
-            android:exported="false" />
+            android:name=".Data.BookProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>

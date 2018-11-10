@@ -1,4 +1,4 @@
-package com.example.kkchain.nanodegree_project9_inventory_2_book;
+package com.example.kkchain.nanodegree_pj9_inventory_2_book;
 
 import android.app.LoaderManager;
 import android.content.ContentValues;
