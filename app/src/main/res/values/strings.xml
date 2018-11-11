@@ -13,5 +13,10 @@
     <!-- editor menu: Delete -->
     <string name="action_delete_data">Delete</string>
 
+    <!-- editor class: insert failed -->
+    <string name="editor_insert_book_failed">Error with saving book</string>
+
+    <!-- editor class: insert successfully -->
+    <string name="editor_insert_book_successful">Book Saved</string>
 
 </resources>
