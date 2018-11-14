@@ -19,4 +19,32 @@
     <!-- editor class: insert successfully -->
     <string name="editor_insert_book_successful">Book Saved</string>
 
+    <!-- editor class: App Bar title = Add a Book -->
+    <string name="editor_title_bar_add_new_book">Add a Book</string>
+
+    <!-- editor class: App Bar title = Edit Book -->
+    <string name="editor_title_bar_edit_book">Edit Book</string>
+
+    <!-- editor class: Delete Dialog message = Delete this book -->
+    <string name="delete_dialog_message">Delete this book</string>
+
+    <!-- editor class: Delete Dialog message = Delete -->
+    <string name="delete_message">Delete</string>
+
+    <!-- editor class: Cancel message = Cancel -->
+    <string name="cancel_message">Cancel</string>
+
+    <!-- editor class: Toast message -->
+    <string name="editor_error_delete_book">Error in deleting book</string>
+
+    <!-- editor class: Toast message -->
+    <string name="editor_delete_book_successfully">Delete book successfully</string>
+
+    <!-- editor class: Toast message -->
+    <string name="editor_failed_update_book">Error in updating book</string>
+
+    <!-- editor class: Toast message -->
+    <string name="editor_update_book_successfully">Update book successfully</string>
+
+
 </resources>

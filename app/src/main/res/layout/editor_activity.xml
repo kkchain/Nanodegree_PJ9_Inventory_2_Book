@@ -60,9 +60,25 @@
 
         <EditText
             android:id="@+id/edit_bookQuantity"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingRight="60dp"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/add_quantity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="+"/>
+
+        <Button
+            android:id="@+id/minus_quantity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="-"/>
+
     </LinearLayout>
 
     <LinearLayout
