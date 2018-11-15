@@ -1,27 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <!--Display book name-->
     <TextView
         android:id="@+id/bookName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:padding="5dp"
-        android:text="Book Name"/>
+        android:text="Book Name"
+        android:textSize="20sp" />
 
     <!--Display book price-->
-    <TextView
-        android:id="@+id/bookPrice"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:padding="5dp"
-        android:paddingBottom="5dp"
-        android:text="Book Price"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/bookPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingBottom="5dp"
+            android:text="Book Price"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -33,19 +48,20 @@
             android:id="@+id/bookQuantity"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:textSize="20sp"
-            android:padding="5dp"
             android:layout_marginRight="20dp"
-            android:text="Book Quantity"/>
+            android:padding="5dp"
+            android:text="Book Quantity"
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/saleButton"
+            android:id="@+id/sale_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sale"/>
+            android:layout_marginLeft="30dp"
+            android:focusable="false"
+            android:text="Sale" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

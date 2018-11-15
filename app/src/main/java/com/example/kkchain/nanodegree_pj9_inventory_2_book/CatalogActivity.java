@@ -89,10 +89,10 @@ public class CatalogActivity extends AppCompatActivity implements
         // Create a ContentValues object.
         ContentValues values = new ContentValues();
         values.put(BookEntry.COLUMN_BOOK_NAME, "Back to the Future");
-        values.put(BookEntry.COLUMN_BOOK_PRICE, "$25");
+        values.put(BookEntry.COLUMN_BOOK_PRICE, "25");
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, 3);
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_NAME, "Motion Picture");
-        values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NO, "123-456-7890");
+        values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NO, "1234567890");
 
         Uri newUri = getContentResolver().insert(BookEntry.CONTENT_URI, values);
     }

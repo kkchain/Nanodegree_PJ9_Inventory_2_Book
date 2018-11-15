@@ -51,7 +51,6 @@ public final class BookContract {
         public static final String CONTENT_ITEM_TYPE =
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_BOOKS;
 
-
         /**
          * Name of database table for books
          */

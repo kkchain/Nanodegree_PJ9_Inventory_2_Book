@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nanodegree_PJ9_Inventory_2_Book</string>
+    <string name="app_name">Book Inventory App</string>
 
     <!-- catalog menu: insert dummy data -->
     <string name="action_insert_dummy_data">Insert Dummy Data</string>
@@ -46,5 +46,15 @@
     <!-- editor class: Toast message -->
     <string name="editor_update_book_successfully">Update book successfully</string>
 
+    <!-- editor class: Toast message -->
+    <string name="editor_no_empty_fields_allow">All Fields must not be Empty!!</string>
 
+    <!-- editor class: Toast message -->
+    <string name="editor_invalid_phone_no">Enter a valid phone no</string>
+
+    <!-- editor class: Toast message -->
+    <string name="editor_quantity_greater_zero">Quantity must be greater than 0</string>
+
+    <!-- editor class: Toast message -->
+    <string name="editor_quantity_less_than_zero">Quantity must not less than 0</string>
 </resources>

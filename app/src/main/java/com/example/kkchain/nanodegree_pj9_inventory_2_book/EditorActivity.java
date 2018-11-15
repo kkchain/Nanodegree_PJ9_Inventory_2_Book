@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,11 @@ import com.example.kkchain.nanodegree_pj9_inventory_2_book.Data.BookContract.Boo
 
 public class EditorActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
+
+    /**
+     * Validate min phone number digit
+     */
+    private static final int MIN_PHONE_NO = 10;  // Example: 1234567890 (USA)
 
     /**
      * Identifier for the book data loader
@@ -125,6 +131,58 @@ public class EditorActivity extends AppCompatActivity implements
         mBookQuatityEditText.setOnTouchListener(mTouchListener);
         mBookSupplierNameEditText.setOnTouchListener(mTouchListener);
         mBookSupplierPhoneNoEditText.setOnTouchListener(mTouchListener);
+
+        // Button - Increase quantity
+        Button increaseQuantity = (Button) findViewById(R.id.increase_quantity_button);
+        // Button - Decrease quantity
+        Button decreaseQuantity = (Button) findViewById(R.id.decrease_quantity_button);
+
+        // Set on click listener, increase by one each time it click
+        // Return early and alert user if quantity less than zero
+        increaseQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String bookQuantityString = mBookQuatityEditText.getText().toString().trim();
+                int quantity = Integer.parseInt(bookQuantityString); // Change book quantity from string to integer
+                quantity = quantity + 1;
+                mBookQuatityEditText.setText(String.valueOf(quantity));
+            }
+        });
+
+        // Set on click listener, decrease by one each time it click
+        // Return early and alert user if quantity equal or less than zero
+        decreaseQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String bookQuantityString = mBookQuatityEditText.getText().toString().trim();
+                int quantity = Integer.parseInt(bookQuantityString); // Change book quantity from string to integer
+                if (quantity <= 0) {
+                    Toast.makeText(EditorActivity.this, R.string.editor_quantity_greater_zero, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                quantity = quantity - 1;
+                mBookQuatityEditText.setText(String.valueOf(quantity));
+            }
+        });
+
+        // Set on click listener when call supplier button is clicked
+        Button callSupplierPhoneNo = findViewById(R.id.call_supplier_button);
+        callSupplierPhoneNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String bookSupplierPhoneNoString = mBookSupplierPhoneNoEditText.getText().toString().trim();
+                if (bookSupplierPhoneNoString == null || TextUtils.isEmpty(bookSupplierPhoneNoString)) {
+                    Toast.makeText(getApplicationContext(), R.string.editor_invalid_phone_no, Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    String uri = "tel:" + bookSupplierPhoneNoString;
+                    intent.setData(Uri.parse(uri));
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
 
@@ -150,6 +208,16 @@ public class EditorActivity extends AppCompatActivity implements
             return;
         }
 
+        // Check if book name or price or quantity or supplier name or phone no is empty
+        // Stop saving and return early, Ask user to make sure to enter all inputs
+        if (TextUtils.isEmpty(bookNameString) || TextUtils.isEmpty(bookPriceString) ||
+                TextUtils.isEmpty(bookQuantityString) || TextUtils.isEmpty(bookSupplierNameString) ||
+                TextUtils.isEmpty(bookSupplierPhoneNoString)) {
+            Toast.makeText(this, getString(R.string.editor_no_empty_fields_allow),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Create a ContentValues object where column names are the keys,
         // and book  attributes from the editor are the values.
         ContentValues values = new ContentValues();
@@ -161,7 +229,6 @@ public class EditorActivity extends AppCompatActivity implements
 
         // If the book quantity is not provided bt the user, don't parse the string into an
         // integer value. Use 0 as default.
-        // Change quantity from Int to String for updating the database.
         int quantity = 0;
         if (!TextUtils.isEmpty(bookQuantityString)) {
             quantity = Integer.parseInt(bookQuantityString);
@@ -258,7 +325,7 @@ public class EditorActivity extends AppCompatActivity implements
                 BookEntry.COLUMN_BOOK_PRICE,
                 BookEntry.COLUMN_BOOK_QUANTITY,
                 BookEntry.COLUMN_BOOK_SUPPLIER_NAME,
-                BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NO };
+                BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NO};
 
         // This loader will execute the ContentProvider's query method on a background thread.
         return new CursorLoader(this, mCurrentBookUri, projection,
