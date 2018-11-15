@@ -144,9 +144,26 @@ public class EditorActivity extends AppCompatActivity implements
             public void onClick(View v) {
 
                 String bookQuantityString = mBookQuatityEditText.getText().toString().trim();
-                int quantity = Integer.parseInt(bookQuantityString); // Change book quantity from string to integer
+                int quantity = 0;
+                // Check if input field is not empty
+                if (!bookQuantityString.isEmpty()) {
+                    quantity = Integer.parseInt(bookQuantityString);
+                } else {
+                    Toast.makeText(EditorActivity.this, R.string.editor_quantity_greater_zero, Toast.LENGTH_SHORT).show();
+
+                }
+
+                if (quantity <= 0) {
+                    Toast.makeText(EditorActivity.this, R.string.editor_quantity_greater_zero, Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 quantity = quantity + 1;
-                mBookQuatityEditText.setText(String.valueOf(quantity));
+
+                // Update value in database
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
+                getContentResolver().update(mCurrentBookUri, contentValues, null, null);
+                mBookQuatityEditText.setText(String.valueOf(contentValues.getAsString(BookEntry.COLUMN_BOOK_QUANTITY)));
             }
         });
 
@@ -157,13 +174,26 @@ public class EditorActivity extends AppCompatActivity implements
             public void onClick(View v) {
 
                 String bookQuantityString = mBookQuatityEditText.getText().toString().trim();
-                int quantity = Integer.parseInt(bookQuantityString); // Change book quantity from string to integer
+                int quantity = 0;
+                // Check if input field is not empty
+                if (!bookQuantityString.isEmpty()) {
+                    quantity = Integer.parseInt(bookQuantityString);
+                } else {
+                    Toast.makeText(EditorActivity.this, R.string.editor_quantity_greater_zero, Toast.LENGTH_SHORT).show();
+
+                }
+
                 if (quantity <= 0) {
                     Toast.makeText(EditorActivity.this, R.string.editor_quantity_greater_zero, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 quantity = quantity - 1;
-                mBookQuatityEditText.setText(String.valueOf(quantity));
+
+                // Update value in database
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(BookEntry.COLUMN_BOOK_QUANTITY, quantity);
+                getContentResolver().update(mCurrentBookUri, contentValues, null, null);
+                mBookQuatityEditText.setText(String.valueOf(contentValues.getAsString(BookEntry.COLUMN_BOOK_QUANTITY)));
             }
         });
 
